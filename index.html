@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SMA-Apps · Índice</title>
+  <meta name="description" content="SMA-Apps: índice de aplicaciones." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <meta name="color-scheme" content="light dark" />
+  <!-- Favicon (opcional): sustituye por tu ruta -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230ea5e9'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='54' font-family='Arial, Helvetica, sans-serif' fill='white'%3ES%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    :root{
+      --bg: #0b1020;
+      --bg-2: #10172a;
+      --fg: #e5e7eb;
+      --muted: #9ca3af;
+      --brand: #0ea5e9; /* sky-500 */
+      --card: #111827;
+      --ring: rgba(14,165,233,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f8fafc;
+        --bg-2: #eef2ff;
+        --fg: #0f172a;
+        --muted: #475569;
+        --brand: #0284c7; /* sky-600 */
+        --card: #ffffff;
+        --ring: rgba(2,132,199,.25);
+      }
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--fg);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(14,165,233,.20), transparent 60%),
+        radial-gradient(800px 500px at 100% 0%, rgba(99,102,241,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      min-height:100dvh;
+    }
+
+    .container{width:min(1100px, 92%); margin-inline:auto}
+
+    /* Header */
+    header{
+      position: sticky; top:0; backdrop-filter: saturate(140%) blur(8px);
+      background: color-mix(in oklab, var(--bg) 70%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--fg) 15%, transparent);
+      z-index: 10;
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .logo{display:flex; align-items:center; gap:.6rem; text-decoration:none; color:inherit}
+    .logo-badge{width:36px; height:36px; display:grid; place-items:center; border-radius:12px; background:var(--brand); color:#fff; font-weight:800}
+    .logo-name{font-weight:800; letter-spacing:.2px}
+    nav a{color:var(--fg); text-decoration:none; opacity:.85; margin-left:1rem}
+    nav a:hover{opacity:1}
+
+    /* Hero */
+    .hero{padding: 64px 0 36px}
+    .hero h1{font-size: clamp(28px, 5vw, 44px); line-height:1.1; margin:0 0 .75rem}
+    .hero p{max-width: 62ch; margin:0 0 1.2rem; color:var(--muted)}
+    .actions{display:flex; gap:.8rem; flex-wrap:wrap}
+    .btn{
+      appearance:none; border:none; cursor:pointer; text-decoration:none;
+      padding:.8rem 1rem; border-radius:12px; font-weight:600; display:inline-flex; align-items:center; gap:.5rem;
+      background:var(--brand); color:#fff; box-shadow: 0 8px 24px -6px var(--ring);
+    }
+    .btn:focus-visible{outline: 3px solid var(--ring); outline-offset:2px}
+    .btn.secondary{background:transparent; color:var(--fg); border:1px solid color-mix(in oklab, var(--fg) 18%, transparent)}
+
+    /* Apps grid */
+    .section{padding: 24px 0 72px}
+    .section h2{font-size: clamp(22px, 4vw, 32px); margin:0 0 1rem}
+    .grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap:16px}
+    .card{
+      background: var(--card); border:1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+      padding:16px; border-radius:14px; min-height:120px; display:flex; flex-direction:column; justify-content:space-between;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .card:hover{transform: translateY(-2px); box-shadow: 0 10px 30px -10px var(--ring)}
+    .pill{display:inline-block; padding:.25rem .5rem; border-radius:999px; font-size:.8rem; border:1px solid color-mix(in oklab, var(--fg) 14%, transparent); color:var(--muted)}
+    .card h3{margin:.25rem 0 .5rem; font-size:1.05rem}
+    .empty{display:grid; place-items:center; color:var(--muted); font-style:italic}
+
+    /* Footer */
+    footer{border-top:1px solid color-mix(in oklab, var(--fg) 15%, transparent); padding:18px 0 36px; color:var(--muted)}
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .card, .btn{transition:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Principal">
+      <a class="logo" href="#" aria-label="SMA-Apps, ir al inicio">
+        <span class="logo-badge" aria-hidden="true">S</span>
+        <span class="logo-name">SMA-Apps</span>
+      </a>
+      <nav>
+        <a href="#apps">Apps</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="inicio">
+      <h1>Bienvenido a <span style="color:var(--brand)">SMA-Apps</span></h1>
+      <p>Colección de aplicaciones sencillas y útiles. Esta es la página índice; pronto verás aquí el catálogo completo.</p>
+      <div class="actions">
+        <a class="btn" href="#apps">Ver apps</a>
+        <a class="btn secondary" href="#contacto">Saber más</a>
+      </div>
+    </section>
+
+    <section class="section" id="apps">
+      <h2>Apps</h2>
+      <div class="grid" role="list">
+        <article class="card empty" role="listitem">
+          <div>
+            <span class="pill">Próximamente</span>
+            <h3>Estamos preparando las primeras apps…</h3>
+            <p style="margin:0;">Vuelve en unos días para descubrirlas.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contacto" aria-labelledby="contacto-title">
+      <h2 id="contacto-title">Contacto</h2>
+      <p style="color:var(--muted)">¿Tienes una idea o quieres proponer una app? Escríbenos a <a href="mailto:contacto@sma-apps.example">contacto@sma-apps.example</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> SMA-Apps. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script>
+    // Año automático en el pie de página
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <noscript>© 2025 SMA-Apps. Todos los derechos reservados.</noscript>
+</body>
+</html>
