@@ -1,155 +1,242 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SMA-Apps · Índice</title>
-  <meta name="description" content="SMA-Apps: índice de aplicaciones." />
-  <meta name="theme-color" content="#0ea5e9" />
-  <meta name="color-scheme" content="light dark" />
-  <!-- Favicon (opcional): sustituye por tu ruta -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230ea5e9'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='54' font-family='Arial, Helvetica, sans-serif' fill='white'%3ES%3C/text%3E%3C/svg%3E" />
-
+  <title>SMA-Apps — Mis aplicaciones en Google Play</title>
+  <meta name="description" content="Catálogo de aplicaciones publicadas por SMA-Apps en Google Play." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg: #0b1020;
-      --bg-2: #10172a;
-      --fg: #e5e7eb;
-      --muted: #9ca3af;
-      --brand: #0ea5e9; /* sky-500 */
-      --card: #111827;
-      --ring: rgba(14,165,233,.35);
+      --bg: #0b0f17;
+      --card: #121827;
+      --card-2: #0f1625;
+      --text: #e6edf5;
+      --muted: #9fb0c7;
+      --accent: #38bdf8; /* cyan-400 */
+      --ring: #7dd3fc;
+      --radius: 18px;
     }
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg: #f8fafc;
-        --bg-2: #eef2ff;
-        --fg: #0f172a;
-        --muted: #475569;
-        --brand: #0284c7; /* sky-600 */
-        --card: #ffffff;
-        --ring: rgba(2,132,199,.25);
-      }
-    }
-
-    *{box-sizing:border-box}
+    *{box-sizing: border-box}
     html,body{height:100%}
     body{
-      margin:0;
-      font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--fg);
-      background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(14,165,233,.20), transparent 60%),
-        radial-gradient(800px 500px at 100% 0%, rgba(99,102,241,.18), transparent 60%),
-        linear-gradient(180deg, var(--bg), var(--bg-2));
-      min-height:100dvh;
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+      background: radial-gradient(1200px 800px at 20% -10%, #0b1530 0%, var(--bg) 60%),
+                  radial-gradient(900px 700px at 120% 10%, #0b1633 0%, transparent 60%), var(--bg);
+      color:var(--text); line-height:1.55;
     }
-
-    .container{width:min(1100px, 92%); margin-inline:auto}
-
-    /* Header */
     header{
-      position: sticky; top:0; backdrop-filter: saturate(140%) blur(8px);
-      background: color-mix(in oklab, var(--bg) 70%, transparent);
-      border-bottom: 1px solid color-mix(in oklab, var(--fg) 15%, transparent);
-      z-index: 10;
+      position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.1) blur(8px);
+      background:linear-gradient(180deg, rgba(11,15,23,.8), rgba(11,15,23,.4));
+      border-bottom:1px solid rgba(125,211,252,.12);
     }
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .logo{display:flex; align-items:center; gap:.6rem; text-decoration:none; color:inherit}
-    .logo-badge{width:36px; height:36px; display:grid; place-items:center; border-radius:12px; background:var(--brand); color:#fff; font-weight:800}
-    .logo-name{font-weight:800; letter-spacing:.2px}
-    nav a{color:var(--fg); text-decoration:none; opacity:.85; margin-left:1rem}
-    nav a:hover{opacity:1}
-
-    /* Hero */
-    .hero{padding: 64px 0 36px}
-    .hero h1{font-size: clamp(28px, 5vw, 44px); line-height:1.1; margin:0 0 .75rem}
-    .hero p{max-width: 62ch; margin:0 0 1.2rem; color:var(--muted)}
-    .actions{display:flex; gap:.8rem; flex-wrap:wrap}
-    .btn{
-      appearance:none; border:none; cursor:pointer; text-decoration:none;
-      padding:.8rem 1rem; border-radius:12px; font-weight:600; display:inline-flex; align-items:center; gap:.5rem;
-      background:var(--brand); color:#fff; box-shadow: 0 8px 24px -6px var(--ring);
+    .wrap{max-width:1200px; margin:0 auto; padding:24px 20px}
+    .hero{display:flex; align-items:center; gap:18px}
+    .logo{
+      width:46px; height:46px; border-radius:14px; display:grid; place-items:center; font-weight:800; font-size:18px;
+      background:linear-gradient(135deg, #38bdf8 0%, #6366f1 100%); color:white; box-shadow:0 10px 30px rgba(56,189,248,.25);
     }
-    .btn:focus-visible{outline: 3px solid var(--ring); outline-offset:2px}
-    .btn.secondary{background:transparent; color:var(--fg); border:1px solid color-mix(in oklab, var(--fg) 18%, transparent)}
+    h1{font-size: clamp(22px, 3vw, 34px); margin:0}
+    .sub{color:var(--muted); font-size:14px}
 
-    /* Apps grid */
-    .section{padding: 24px 0 72px}
-    .section h2{font-size: clamp(22px, 4vw, 32px); margin:0 0 1rem}
-    .grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap:16px}
+    .grid{
+      display:grid; gap:18px; margin-top:24px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
     .card{
-      background: var(--card); border:1px solid color-mix(in oklab, var(--fg) 10%, transparent);
-      padding:16px; border-radius:14px; min-height:120px; display:flex; flex-direction:column; justify-content:space-between;
-      transition: transform .15s ease, box-shadow .15s ease;
+      position:relative; background:linear-gradient(180deg, var(--card) 0%, var(--card-2) 100%);
+      border:1px solid rgba(148,163,184,.18); border-radius: var(--radius); padding:16px; overflow:clip;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
-    .card:hover{transform: translateY(-2px); box-shadow: 0 10px 30px -10px var(--ring)}
-    .pill{display:inline-block; padding:.25rem .5rem; border-radius:999px; font-size:.8rem; border:1px solid color-mix(in oklab, var(--fg) 14%, transparent); color:var(--muted)}
-    .card h3{margin:.25rem 0 .5rem; font-size:1.05rem}
-    .empty{display:grid; place-items:center; color:var(--muted); font-style:italic}
-
-    /* Footer */
-    footer{border-top:1px solid color-mix(in oklab, var(--fg) 15%, transparent); padding:18px 0 36px; color:var(--muted)}
-
-    /* Reduce motion */
-    @media (prefers-reduced-motion: reduce){
-      .card, .btn{transition:none}
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow:0 8px 30px rgba(2,132,199,.18);
+      border-color: rgba(125,211,252,.35);
     }
+    .app-head{display:flex; gap:12px; align-items:center}
+    .app-icon{width:56px; height:56px; border-radius:14px; box-shadow:0 8px 18px rgba(0,0,0,.25); flex:0 0 auto; object-fit:cover}
+    .app-title{font-weight:600; margin:0; font-size:16px}
+    .app-meta{color:var(--muted); font-size:12px; margin-top:4px}
+
+    .actions{display:flex; gap:10px; align-items:center; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; color:#02131d; font-weight:600;
+      padding:10px 12px; border-radius:12px; background:linear-gradient(180deg, #7dd3fc, #38bdf8); box-shadow:0 6px 22px rgba(56,189,248,.35);
+      border:1px solid rgba(2,132,199,.45);
+    }
+    .btn:focus{outline:none; box-shadow:0 0 0 4px rgba(125,211,252,.25)}
+
+    .badge{margin-left:auto; font-size:10px; color:#0ea5e9; background:rgba(14,165,233,.14); padding:6px 8px; border:1px solid rgba(14,165,233,.25); border-radius:10px}
+
+    footer{opacity:.8; color:var(--muted); text-align:center; padding:28px 0}
+    .small{font-size:12px}
   </style>
 </head>
 <body>
   <header>
-    <div class="container nav" role="navigation" aria-label="Principal">
-      <a class="logo" href="#" aria-label="SMA-Apps, ir al inicio">
-        <span class="logo-badge" aria-hidden="true">S</span>
-        <span class="logo-name">SMA-Apps</span>
-      </a>
-      <nav>
-        <a href="#apps">Apps</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+    <div class="wrap hero">
+      <div class="logo" aria-hidden>SA</div>
+      <div>
+        <h1>SMA‑Apps</h1>
+        <div class="sub">Apps publicadas en Google Play — diseño limpio, rápido y sin ruido.</div>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero" id="inicio">
-      <h1>Bienvenido a <span style="color:var(--brand)">SMA-Apps</span></h1>
-      <p>Colección de aplicaciones sencillas y útiles. Esta es la página índice; pronto verás aquí el catálogo completo.</p>
-      <div class="actions">
-        <a class="btn" href="#apps">Ver apps</a>
-        <a class="btn secondary" href="#contacto">Saber más</a>
-      </div>
-    </section>
+  <main class="wrap">
+    <section class="grid" aria-label="Listado de apps">
 
-    <section class="section" id="apps">
-      <h2>Apps</h2>
-      <div class="grid" role="list">
-        <article class="card empty" role="listitem">
+      <!-- LED Strip Remote -->
+      <article class="card">
+        <div class="app-head">
+          <img class="app-icon" alt="LED Strip Remote icon" src="https://play-lh.googleusercontent.com/a-zFlTXe3CypGBGijVLWdA3iKGbMnEzravrAg7x7SoZbr5oXSWnevee2k46I_HCgQkc-0LeMa9bPKXqA1t4ELQ=w240-h480" />
           <div>
-            <span class="pill">Próximamente</span>
-            <h3>Estamos preparando las primeras apps…</h3>
-            <p style="margin:0;">Vuelve en unos días para descubrirlas.</p>
+            <h2 class="app-title">LED Strip Remote</h2>
+            <div class="app-meta">Herramientas</div>
           </div>
-        </article>
-      </div>
+          <span class="badge">SMA‑Apps</span>
+        </div>
+        <div class="actions">
+          <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=led.remote.stripe.luz.mando">Ver en Google Play</a>
+        </div>
+      </article>
+
+      <!-- Calculator XXL – Big Buttons -->
+      <article class="card">
+        <div class="app-head">
+          <img class="app-icon" alt="Calculator XXL icon" src="https://play-lh.googleusercontent.com/lewTFn4aMw58RWS6ke_sD4Qy-Ch_wwACdKVSxT7tD-2z1lWJ4EObsfKt--8v9EN6E4UsTFgDlnDYH_J41BYM=w240-h480" />
+          <div>
+            <h2 class="app-title">Calculator XXL – Big Buttons</h2>
+            <div class="app-meta">Herramientas</div>
+          </div>
+          <span class="badge">SMA‑Apps</span>
+        </div>
+        <div class="actions">
+          <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=accesible.calculator.com">Ver en Google Play</a>
+        </div>
+      </article>
+
+      <!-- Cameroon Live TV -->
+      <article class="card">
+        <div class="app-head">
+          <img class="app-icon" alt="Cameroon Live TV icon" src="https://play-lh.googleusercontent.com/zI9J5AxBfkMIMwJoGDJ6GtBHWgwgBR3ZZnNkKEpZOQRTXEx5TmKeUfhEn6EY7R3djLNnoeFLhRSqfWPLYZDGBQ=w240-h480" />
+          <div>
+            <h2 class="app-title">Cameroon Live TV</h2>
+            <div class="app-meta">Entretenimiento</div>
+          </div>
+          <span class="badge">SMA‑Apps</span>
+        </div>
+        <div class="actions">
+          <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=cameroun.cameroon.tv.live.online.television.en.direct.football.basketball.direct">Ver en Google Play</a>
+        </div>
+      </article>
+
+      <!-- El Salvador TV en Vivo -->
+      <article class="card">
+        <div class="app-head">
+          <img class="app-icon" alt="El Salvador TV en Vivo icon" src="https://play-lh.googleusercontent.com/_d0847ZymSwpG7gMMyu44SRUC0nnmqpfQ_ONeFiHOQIBB-h1TWbaygGh3BJJ8W_DXa7YPjV7ONdkFISkFYUT=w240-h480" />
+          <div>
+            <h2 class="app-title">El Salvador TV en Vivo</h2>
+            <div class="app-meta">Entretenimiento</div>
+          </div>
+          <span class="badge">SMA‑Apps</span>
+        </div>
+        <div class="actions">
+          <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=el.salvador.tv.en.vivo.directo.online.futbol.beisbol">Ver en Google Play</a>
+        </div>
+      </article>
+
+      <!-- Costa Rica TV en Vivo -->
+      <article class="card">
+        <div class="app-head">
+          <img class="app-icon" alt="Costa Rica TV en Vivo icon" src="https://play-lh.googleusercontent.com/5Jc2hrJcvAa3PJNQiTiquRwlIsquPCQ01sqlCsN_jDJFNTqTyblBh1iNQXBdHJe5S-oHsfI_7ETLgKEXrcdElQ=w240-h480" />
+          <div>
+            <h2 class="app-title">Costa Rica TV en Vivo</h2>
+            <div class="app-meta">Entretenimiento</div>
+          </div>
+          <span class="badge">SMA‑Apps</span>
+        </div>
+        <div class="actions">
+          <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=costa.rica.tv.en.vivo.directo.online.futbol">Ver en Google Play</a>
+        </div>
+      </article>
+
+      <!-- Japan TV Live -->
+      <article class="card">
+        <div class="app-head">
+          <img class="app-icon" alt="Japan TV Live icon" src="https://play-lh.googleusercontent.com/iCfZ8gKTqa364hu9eO9elnNeeOv_chHlEH9FhVf1hrDnc7trMNwbkWjn2iK2Ct2ypMkxmEj0IG-YdKwVn7ItFnw=w240-h480" />
+          <div>
+            <h2 class="app-title">Japan TV Live</h2>
+            <div class="app-meta">Entretenimiento</div>
+          </div>
+          <span class="badge">SMA‑Apps</span>
+        </div>
+        <div class="actions">
+          <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=japan.tv.live.online.football.beisball.basketball.sumo">Ver en Google Play</a>
+        </div>
+      </article>
+
+      <!-- Myanmar TV Live -->
+      <article class="card">
+        <div class="app-head">
+          <img class="app-icon" alt="Myanmar TV Live icon" src="https://play-lh.googleusercontent.com/HQfLVNBtXUYhZPwGvddGinNLSXFJfnq95KbpjG6UB31UHwXssx5YwvxxirjVgW1QzlaXGFhr_9hfBm8zXrgEbQ=w240-h480" />
+          <div>
+            <h2 class="app-title">Myanmar TV Live</h2>
+            <div class="app-meta">Entretenimiento</div>
+          </div>
+          <span class="badge">SMA‑Apps</span>
+        </div>
+        <div class="actions">
+          <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=myanmar.myama.tv.online.live">Ver en Google Play</a>
+        </div>
+      </article>
+
+      <!-- Sénégal TV en Direct -->
+      <article class="card">
+        <div class="app-head">
+          <img class="app-icon" alt="Sénégal TV en Direct icon" src="https://play-lh.googleusercontent.com/nroMwC43kUbJvpkyqoO38Os3VeZnGSNEKeLolFRG1xQvtRYkpzO4aPQHa8MxHjQNDW9IOyeInq-R_vuITnTrUnM=w240-h480" />
+          <div>
+            <h2 class="app-title">Sénégal TV en Direct</h2>
+            <div class="app-meta">Entretenimiento</div>
+          </div>
+          <span class="badge">SMA‑Apps</span>
+        </div>
+        <div class="actions">
+          <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=senegal.television.en.direct.football.basketball.direct">Ver en Google Play</a>
+        </div>
+      </article>
+
+      <!-- Ireland Live TV -->
+      <article class="card">
+        <div class="app-head">
+          <img class="app-icon" alt="Ireland Live TV icon" src="https://play-lh.googleusercontent.com/NXod6k0nSoacyxXFIhxWGprx5pxffEEHiLhOTzkabnrIHjvrJYK-vYabHeaYm91x_MQr2wzBRJOviUFmG-mNwg=w240-h480" />
+          <div>
+            <h2 class="app-title">Ireland Live TV</h2>
+            <div class="app-meta">Entretenimiento</div>
+          </div>
+          <span class="badge">SMA‑Apps</span>
+        </div>
+        <div class="actions">
+          <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=ireland.football.tv.live.online.show.film.hurling.rugby.peil.ghaelach.caid">Ver en Google Play</a>
+        </div>
+      </article>
+
     </section>
 
-    <section class="section" id="contacto" aria-labelledby="contacto-title">
-      <h2 id="contacto-title">Contacto</h2>
-      <p style="color:var(--muted)">¿Tienes una idea o quieres proponer una app? Escríbenos a <a href="mailto:contacto@sma-apps.example">contacto@sma-apps.example</a>.</p>
+    <section class="small" style="margin-top:22px; color:var(--muted)">
+      Los logotipos e imágenes pertenecen a sus respectivos propietarios según las fichas de Google Play. Este sitio no almacena contenido ni reproduce emisiones.
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      © <span id="year"></span> SMA-Apps. Todos los derechos reservados.
-    </div>
+    <div class="wrap small">© <span id="year"></span> SMA‑Apps — Todos los derechos reservados.</div>
   </footer>
 
   <script>
-    // Año automático en el pie de página
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-  <noscript>© 2025 SMA-Apps. Todos los derechos reservados.</noscript>
 </body>
 </html>
