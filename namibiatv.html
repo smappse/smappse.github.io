@@ -3,202 +3,437 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy - Namibia Live TV</title>
+  <title>Privacy Policy, Namibia Live TV</title>
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
       padding: 0;
-      background: #f7f7f7;
-      color: #222;
+      min-height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f1f1f;
+      overflow-x: hidden;
+      background: #071b3a;
+    }
+
+    body {
+      position: relative;
+    }
+
+    /* Animated background */
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      background: #06162f;
+    }
+
+    .flag {
+      position: absolute;
+      inset: -5%;
+      transform: scale(1.08);
+      animation: floatFlag 10s ease-in-out infinite;
+      filter: saturate(1.1);
+    }
+
+    .flag::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(145deg,
+          #003580 0%,
+          #003580 43%,
+          #ffffff 43%,
+          #ffffff 47%,
+          #d21034 47%,
+          #d21034 53%,
+          #ffffff 53%,
+          #ffffff 57%,
+          #009543 57%,
+          #009543 100%);
+    }
+
+    .flag::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          100deg,
+          rgba(255,255,255,0.00) 0px,
+          rgba(255,255,255,0.10) 40px,
+          rgba(0,0,0,0.12) 80px,
+          rgba(255,255,255,0.06) 120px,
+          rgba(0,0,0,0.10) 160px
+        );
+      mix-blend-mode: soft-light;
+      opacity: 0.75;
+      animation: waveLines 5s linear infinite;
+    }
+
+    .wave-shadow {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.18), transparent 18%),
+        radial-gradient(circle at 35% 65%, rgba(255,255,255,0.10), transparent 20%),
+        radial-gradient(circle at 70% 35%, rgba(255,255,255,0.12), transparent 18%),
+        radial-gradient(circle at 85% 70%, rgba(255,255,255,0.10), transparent 15%);
+      filter: blur(10px);
+      animation: shimmer 7s ease-in-out infinite alternate;
+    }
+
+    .sun {
+      position: absolute;
+      top: 7%;
+      left: 4%;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      z-index: 2;
+      animation: floatSun 6s ease-in-out infinite;
+    }
+
+    .sun .rays {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background:
+        conic-gradient(
+          #ffcc00 0deg 12deg, transparent 12deg 30deg,
+          #ffcc00 30deg 42deg, transparent 42deg 60deg,
+          #ffcc00 60deg 72deg, transparent 72deg 90deg,
+          #ffcc00 90deg 102deg, transparent 102deg 120deg,
+          #ffcc00 120deg 132deg, transparent 132deg 150deg,
+          #ffcc00 150deg 162deg, transparent 162deg 180deg,
+          #ffcc00 180deg 192deg, transparent 192deg 210deg,
+          #ffcc00 210deg 222deg, transparent 222deg 240deg,
+          #ffcc00 240deg 252deg, transparent 252deg 270deg,
+          #ffcc00 270deg 282deg, transparent 282deg 300deg,
+          #ffcc00 300deg 312deg, transparent 312deg 330deg,
+          #ffcc00 330deg 342deg, transparent 342deg 360deg
+        );
+      transform: rotate(0deg);
+      animation: rotateSun 20s linear infinite;
+      filter: drop-shadow(0 0 16px rgba(255, 204, 0, 0.35));
+    }
+
+    .sun .core {
+      position: absolute;
+      inset: 24px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ffe45c, #f5bf00 70%);
+      box-shadow: 0 0 30px rgba(255, 210, 0, 0.35);
+    }
+
+    .background-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.20), rgba(0,0,0,0.35)),
+        radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.28) 100%);
+      z-index: 3;
+    }
+
+    /* Content */
+    .page {
+      position: relative;
+      z-index: 5;
+      padding: 40px 20px;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto;
-      padding: 32px 20px;
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.90);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 36px 28px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255,255,255,0.35);
     }
 
     h1, h2 {
       color: #0b2f6b;
+      margin-top: 0;
     }
 
     h1 {
-      font-size: 28px;
-      margin-bottom: 16px;
+      font-size: 30px;
+      margin-bottom: 18px;
     }
 
     h2 {
-      font-size: 20px;
-      margin-top: 28px;
+      font-size: 21px;
+      margin-top: 30px;
+      margin-bottom: 10px;
     }
 
     p {
-      margin-bottom: 16px;
+      margin: 0 0 16px 0;
+      line-height: 1.75;
+      font-size: 16px;
     }
 
     ul {
-      margin-bottom: 16px;
+      margin: 0 0 16px 22px;
+      padding: 0;
     }
 
     li {
       margin-bottom: 8px;
+      line-height: 1.7;
+    }
+
+    .intro {
+      font-size: 17px;
+    }
+
+    @keyframes floatFlag {
+      0% {
+        transform: scale(1.08) translateX(0px) translateY(0px);
+      }
+      25% {
+        transform: scale(1.08) translateX(6px) translateY(-4px);
+      }
+      50% {
+        transform: scale(1.08) translateX(-4px) translateY(5px);
+      }
+      75% {
+        transform: scale(1.08) translateX(5px) translateY(-3px);
+      }
+      100% {
+        transform: scale(1.08) translateX(0px) translateY(0px);
+      }
+    }
+
+    @keyframes waveLines {
+      0% {
+        transform: translateX(0) skewX(0deg);
+      }
+      50% {
+        transform: translateX(35px) skewX(2deg);
+      }
+      100% {
+        transform: translateX(70px) skewX(0deg);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-10px) translateY(0px);
+        opacity: 0.45;
+      }
+      50% {
+        transform: translateX(10px) translateY(-6px);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateX(-6px) translateY(8px);
+        opacity: 0.5;
+      }
+    }
+
+    @keyframes rotateSun {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes floatSun {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sun {
+        width: 120px;
+        height: 120px;
+        top: 5%;
+        left: 3%;
+      }
+
+      .sun .core {
+        inset: 18px;
+      }
+
+      .container {
+        padding: 26px 18px;
+        border-radius: 16px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      h2 {
+        font-size: 19px;
+      }
+
+      p, li {
+        font-size: 15px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Privacy Policy for Namibia Live TV</h1>
+  <div class="background">
+    <div class="flag"></div>
+    <div class="wave-shadow"></div>
 
-    <p>
-      This Privacy Policy explains how Namibia Live TV handles user information.
-      By using this application, you agree to the practices described in this policy.
-    </p>
+    <div class="sun">
+      <div class="rays"></div>
+      <div class="core"></div>
+    </div>
 
-    <h2>1. About the App</h2>
+    <div class="background-overlay"></div>
+  </div>
 
-    <p>
-      Namibia Live TV is an entertainment and media application that provides access
-      to television-related content, links, streams, or web pages that may be publicly
-      available from third-party sources.
-    </p>
+  <div class="page">
+    <div class="container">
+      <h1>Privacy Policy for Namibia Live TV</h1>
 
-    <p>
-      The app does not claim ownership of third-party television channels, broadcasts,
-      logos, trademarks, websites, or external content. All rights belong to their
-      respective owners.
-    </p>
+      <p class="intro">
+        This Privacy Policy explains how Namibia Live TV handles user information.
+        By using this application, you agree to the practices described in this policy.
+      </p>
 
-    <h2>2. Information We Collect</h2>
+      <h2>1. About the App</h2>
+      <p>
+        Namibia Live TV is an entertainment and media application that provides access
+        to television related content, links, streams, or web pages that may be publicly
+        available from third party sources.
+      </p>
+      <p>
+        The app does not claim ownership of third party television channels, broadcasts,
+        logos, trademarks, websites, or external content. All rights belong to their
+        respective owners.
+      </p>
 
-    <p>
-      Namibia Live TV does not require users to create an account and does not directly
-      request personal information such as name, address, phone number, or payment
-      information.
-    </p>
+      <h2>2. Information We Collect</h2>
+      <p>
+        Namibia Live TV does not require users to create an account and does not directly
+        request personal information such as name, address, phone number, or payment information.
+      </p>
+      <p>
+        However, some information may be collected automatically by third party services
+        used within the app, such as advertising, analytics, crash reporting, or platform services.
+        This may include:
+      </p>
+      <ul>
+        <li>Device information, such as device model, operating system, and language.</li>
+        <li>Advertising identifiers used to show or measure ads.</li>
+        <li>App usage information, such as interactions, sessions, and performance data.</li>
+        <li>Crash logs or technical diagnostics used to improve stability.</li>
+        <li>Approximate location inferred from network or device settings, when used by third party services.</li>
+      </ul>
 
-    <p>
-      However, some information may be collected automatically by third-party services
-      used within the app, such as advertising, analytics, crash reporting, or platform
-      services. This may include:
-    </p>
+      <h2>3. Advertising</h2>
+      <p>
+        Namibia Live TV may display advertisements provided by third party advertising
+        networks, such as Google AdMob or similar services.
+      </p>
+      <p>
+        These providers may use cookies, advertising identifiers, or similar technologies
+        to deliver, personalize, and measure ads. Users may be able to limit ad personalization
+        through their device settings.
+      </p>
 
-    <ul>
-      <li>Device information, such as device model, operating system, and language.</li>
-      <li>Advertising identifiers used to show or measure ads.</li>
-      <li>App usage information, such as interactions, sessions, and performance data.</li>
-      <li>Crash logs or technical diagnostics used to improve stability.</li>
-      <li>Approximate location inferred from network or device settings, when used by third-party services.</li>
-    </ul>
+      <h2>4. Third Party Content and External Links</h2>
+      <p>
+        The app may include links to external websites, streaming pages, video players,
+        or third party services. When you access external content, you are subject to
+        the privacy policy and terms of those third party services.
+      </p>
+      <p>
+        Namibia Live TV is not responsible for the privacy practices, availability,
+        content, or behavior of external websites, broadcasters, platforms, or services.
+      </p>
 
-    <h2>3. Advertising</h2>
+      <h2>5. How Information Is Used</h2>
+      <p>
+        Information collected automatically by third party services may be used to:
+      </p>
+      <ul>
+        <li>Display and measure advertisements.</li>
+        <li>Improve app performance and stability.</li>
+        <li>Understand general app usage and improve the user experience.</li>
+        <li>Detect technical issues, errors, or crashes.</li>
+        <li>Comply with legal, security, and platform requirements.</li>
+      </ul>
 
-    <p>
-      Namibia Live TV may display advertisements provided by third-party advertising
-      networks, such as Google AdMob or similar services.
-    </p>
+      <h2>6. Data Sharing</h2>
+      <p>
+        Namibia Live TV does not sell personal information directly. Data may be processed
+        by third party services integrated into the app, such as advertising networks,
+        analytics providers, crash reporting tools, app stores, or operating system services.
+      </p>
+      <p>
+        These third parties process data according to their own privacy policies and
+        legal obligations.
+      </p>
 
-    <p>
-      These providers may use cookies, advertising identifiers, or similar technologies
-      to deliver, personalize, and measure ads. Users may be able to limit ad
-      personalization through their device settings.
-    </p>
+      <h2>7. Children’s Privacy</h2>
+      <p>
+        Namibia Live TV is intended for a general audience. The app does not knowingly
+        collect personal information from children.
+      </p>
+      <p>
+        If a parent or guardian believes that a child has provided personal information
+        through any third party service used by the app, they should review the privacy
+        options available through the relevant platform or service provider.
+      </p>
 
-    <h2>4. Third-Party Content and External Links</h2>
+      <h2>8. Data Security</h2>
+      <p>
+        Namibia Live TV takes reasonable steps to provide a safe app experience.
+        However, no digital service, internet transmission, or external platform can
+        be guaranteed to be completely secure.
+      </p>
 
-    <p>
-      The app may include links to external websites, streaming pages, video players,
-      or third-party services. When you access external content, you are subject to
-      the privacy policy and terms of those third-party services.
-    </p>
+      <h2>9. User Choices</h2>
+      <p>
+        Users may control certain privacy preferences through their device settings,
+        including advertising personalization, app permissions, and data usage options.
+      </p>
+      <p>
+        Users may also uninstall the app at any time to stop further app related data
+        collection from their device.
+      </p>
 
-    <p>
-      Namibia Live TV is not responsible for the privacy practices, availability,
-      content, or behavior of external websites, broadcasters, platforms, or services.
-    </p>
+      <h2>10. Changes to This Privacy Policy</h2>
+      <p>
+        This Privacy Policy may be updated from time to time to reflect changes in the app,
+        third party services, legal requirements, or platform policies.
+      </p>
+      <p>
+        Users are encouraged to review this page periodically to stay informed about
+        how privacy is handled.
+      </p>
 
-    <h2>5. How Information Is Used</h2>
-
-    <p>
-      Information collected automatically by third-party services may be used to:
-    </p>
-
-    <ul>
-      <li>Display and measure advertisements.</li>
-      <li>Improve app performance and stability.</li>
-      <li>Understand general app usage and improve the user experience.</li>
-      <li>Detect technical issues, errors, or crashes.</li>
-      <li>Comply with legal, security, and platform requirements.</li>
-    </ul>
-
-    <h2>6. Data Sharing</h2>
-
-    <p>
-      Namibia Live TV does not sell personal information directly. Data may be processed
-      by third-party services integrated into the app, such as advertising networks,
-      analytics providers, crash reporting tools, app stores, or operating system
-      services.
-    </p>
-
-    <p>
-      These third parties process data according to their own privacy policies and
-      legal obligations.
-    </p>
-
-    <h2>7. Children’s Privacy</h2>
-
-    <p>
-      Namibia Live TV is intended for a general audience. The app does not knowingly
-      collect personal information from children.
-    </p>
-
-    <p>
-      If a parent or guardian believes that a child has provided personal information
-      through any third-party service used by the app, they should review the privacy
-      options available through the relevant platform or service provider.
-    </p>
-
-    <h2>8. Data Security</h2>
-
-    <p>
-      Namibia Live TV takes reasonable steps to provide a safe app experience.
-      However, no digital service, internet transmission, or external platform can
-      be guaranteed to be completely secure.
-    </p>
-
-    <h2>9. User Choices</h2>
-
-    <p>
-      Users may control certain privacy preferences through their device settings,
-      including advertising personalization, app permissions, and data usage options.
-    </p>
-
-    <p>
-      Users may also uninstall the app at any time to stop further app-related data
-      collection from their device.
-    </p>
-
-    <h2>10. Changes to This Privacy Policy</h2>
-
-    <p>
-      This Privacy Policy may be updated from time to time to reflect changes in the
-      app, third-party services, legal requirements, or platform policies.
-    </p>
-
-    <p>
-      Users are encouraged to review this page periodically to stay informed about
-      how privacy is handled.
-    </p>
-
-    <h2>11. Contact</h2>
-
-    <p>
-      For privacy-related questions, users may contact the developer through the
-      official app store listing or the support options available on the platform
-      where the app was downloaded.
-    </p>
+      <h2>11. Contact</h2>
+      <p>
+        For privacy related questions, users may contact the developer through the
+        official app store listing or the support options available on the platform
+        where the app was downloaded.
+      </p>
+    </div>
   </div>
 </body>
 </html>
